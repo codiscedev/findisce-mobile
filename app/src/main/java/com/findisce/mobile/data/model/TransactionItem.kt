@@ -5,5 +5,6 @@ data class TransactionItem(
     val description: String,
     val amount: Long,
     val isExpense: Boolean,
+    val categoryName: String? = null,
     val date: String? = null
 )

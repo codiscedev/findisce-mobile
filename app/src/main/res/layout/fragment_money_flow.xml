@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8F9FA">
+    android:background="#FFF8F9FA"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,29 +12,201 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- Title & Subtitle Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Money Flow Ledger"
-            android:textColor="#0047AB"
+            android:text="Money Flow"
+            android:textColor="#111827"
             android:textSize="22sp"
+            android:fontFamily="sans-serif-medium"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Track all incomes and categorize expenses."
-            android:textColor="#666666"
-            android:textSize="12sp"
-            android:layout_marginTop="4dp" />
+            android:text="Track, categorize and analyze all your cash outflows."
+            android:textColor="#6B7280"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp" />
 
-        <!-- Add transaction block -->
-        <androidx.cardview.widget.CardView
+        <!-- Horizontal Scrollable Sub-Tab Bar -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="1dp">
+            android:scrollbars="none"
+            android:layout_marginTop="14dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- 1. Spending -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabSpending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text=" Spending"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:icon="@drawable/ic_expenses"
+                    app:iconTint="#FFFFFF"
+                    app:backgroundTint="#2563EB"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- 2. Recurring Bills -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabBills"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Recurring Bills"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    app:strokeColor="#E5E7EB"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- 3. Budget -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabBudget"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Budget"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    app:strokeColor="#E5E7EB"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- 4. Income -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabIncome"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Income"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    app:strokeColor="#E5E7EB"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- 5. Credit Cards -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabCreditCards"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Credit Cards"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    app:strokeColor="#E5E7EB"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="20dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- 6. Cash Flow -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/tabCashFlow"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Cash Flow"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp"
+                    app:strokeColor="#E5E7EB"
+                    app:strokeWidth="1dp"
+                    app:cornerRadius="20dp" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Quick Action Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="14dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAddTransactionManual"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="+ Add Manually"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="#2563EB"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnImport"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Import"
+                android:textAllCaps="false"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                app:strokeColor="#E5E7EB"
+                app:strokeWidth="1dp"
+                app:cornerRadius="10dp"
+                android:layout_marginStart="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSms"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="SMS"
+                android:textAllCaps="false"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                app:strokeColor="#E5E7EB"
+                app:strokeWidth="1dp"
+                app:cornerRadius="10dp"
+                android:layout_marginStart="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGmail"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:text="Gmail"
+                android:textAllCaps="false"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                app:strokeColor="#E5E7EB"
+                app:strokeWidth="1dp"
+                app:cornerRadius="10dp"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Metric Card 1: Spending by Category -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E5E7EB"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,98 +217,184 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ADD TRANSACTION"
-                    android:textColor="#888888"
-                    android:textSize="10sp"
+                    android:text="SPENDING BY CATEGORY"
+                    android:textColor="#6B7280"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+                    android:letterSpacing="0.05" />
 
-                <EditText
-                    android:id="@+id/etTxName"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Transaction description"
-                    android:inputType="text"
-                    android:background="@android:drawable/edit_text"
-                    android:padding="10dp"
-                    android:textSize="13sp" />
-
-                <EditText
-                    android:id="@+id/etTxAmount"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Amount in ₹"
-                    android:inputType="number"
-                    android:background="@android:drawable/edit_text"
-                    android:padding="10dp"
-                    android:textSize="13sp"
-                    android:layout_marginTop="10dp" />
-
-                <!-- Radio selections -->
-                <RadioGroup
-                    android:id="@+id/rgTxType"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:checkedButton="@+id/rbExpense">
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
 
-                    <RadioButton
-                        android:id="@+id/rbExpense"
-                        android:layout_width="wrap_content"
+                    <!-- Custom Donut Chart -->
+                    <com.findisce.mobile.ui.view.DonutChartView
+                        android:id="@+id/donutChartView"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp" />
+
+                    <!-- Category Breakdown Legend Container -->
+                    <LinearLayout
+                        android:id="@+id/llCategoryLegend"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Expense"
-                        android:textSize="13sp"
-                        android:layout_marginEnd="16dp" />
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+                        <!-- Populated dynamically -->
+                    </LinearLayout>
+                </LinearLayout>
 
-                    <RadioButton
-                        android:id="@+id/rbIncome"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Income"
-                        android:textSize="13sp" />
-                </RadioGroup>
-
-                <Button
-                    android:id="@+id/btnAddTx"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="Add Transaction"
-                    android:backgroundTint="#0047AB"
-                    android:textColor="#FFFFFFFF"
-                    android:textSize="13sp"
-                    android:layout_marginTop="16dp" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TRANSACTION LOGS"
-            android:textColor="#888888"
-            android:textSize="10sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Transactions log container -->
-        <androidx.cardview.widget.CardView
+        <!-- Metric Card 2: Total Outflow -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="1dp">
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E5E7EB"
+            app:strokeWidth="1dp">
 
             <LinearLayout
-                android:id="@+id/llTxItems"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:divider="?android:attr/listDivider"
-                android:showDividers="middle">
+                android:padding="16dp">
 
-                <!-- Populated dynamically via Kotlin code -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TOTAL OUTFLOW"
+                    android:textColor="#DC2626"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.05" />
+
+                <TextView
+                    android:id="@+id/tvTotalOutflow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹34,09,880"
+                    android:textColor="#DC2626"
+                    android:textSize="26sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This month's total expenses"
+                    android:textColor="#9CA3AF"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F3F4F6"
+                    android:layout_marginVertical="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TOP CATEGORIES"
+                    android:textColor="#6B7280"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/llTopCategoriesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="6dp">
+                    <!-- Dynamic Top Categories -->
+                </LinearLayout>
+
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Transactions Section Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#FFFFFF"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="#E5E7EB"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TRANSACTIONS"
+                    android:textColor="#111827"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold" />
+
+                <!-- Search & Filters Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="12dp">
+
+                    <EditText
+                        android:id="@+id/etSearchTransactions"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:hint="🔍 Search transactions..."
+                        android:inputType="text"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="8dp"
+                        android:textSize="12sp" />
+
+                    <Spinner
+                        android:id="@+id/spCategoryFilter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@android:drawable/edit_text"
+                        android:padding="4dp"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#F3F4F6"
+                    android:layout_marginTop="14dp" />
+
+                <!-- Dynamic Transactions Log Container -->
+                <LinearLayout
+                    android:id="@+id/llTxItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:divider="?android:attr/listDivider"
+                    android:showDividers="middle">
+                    <!-- Dynamic Transactions Rows -->
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 </ScrollView>

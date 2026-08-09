@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "130125343157",
+    "project_id": "finone-6f8ed",
+    "storage_bucket": "finone-6f8ed.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130125343157:android:0a5a0cd7160b6df0e9d1fc",
+        "android_client_info": {
+          "package_name": "com.findisce.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130125343157-9tat4akotvrqn283t228bh7ff4dkjiq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMoM-1Ba-6-Gm0ketzybujafXairabT9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130125343157-9tat4akotvrqn283t228bh7ff4dkjiq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

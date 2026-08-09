@@ -10,6 +10,8 @@ import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.findisce.mobile.data.local.SessionManager
+import com.google.firebase.auth.FirebaseAuth
 
 class SettingsFragment : Fragment() {
 
@@ -45,6 +47,11 @@ class SettingsFragment : Fragment() {
         }
 
         btnSignOut.setOnClickListener {
+            context?.let { ctx ->
+                SessionManager(ctx).clearSession()
+            }
+            FirebaseAuth.getInstance().signOut()
+
             Toast.makeText(context, "Signed Out Successfully.", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, LoginActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

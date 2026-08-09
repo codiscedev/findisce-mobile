@@ -169,7 +169,7 @@ class MainActivity : AppCompatActivity() {
                 )
             )
             settingsTabTitle.visibility = View.GONE
-            openFragment(HealthFragment())
+            openFragment(MoneyFlowFragment())
         }
 
         settingsTab.setOnClickListener {

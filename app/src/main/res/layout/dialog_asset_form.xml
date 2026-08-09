@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Financial Record"
+            android:textColor="#111827"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fill out details"
+            android:textColor="#6B7280"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Subheader with Back Button -->
+        <TextView
+            android:id="@+id/btnBackToCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="‹ Back to Category"
+            android:textColor="#6B7280"
+            android:textSize="13sp"
+            android:paddingVertical="4dp"
+            android:layout_marginTop="14dp" />
+
+        <!-- Field 1: Selected Category & Asset Type & Appreciation Rate (Row) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <!-- Selected Category -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selected Category *"
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etSelectedCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:enabled="false"
+                    android:textColor="#374151"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="8dp"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Asset Type -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Asset Type *"
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spAssetType"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="4dp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Appreciation Rate -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appreciation Rate (%) *"
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etAppreciationRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:hint="8"
+                    android:inputType="numberDecimal"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="8dp"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Field 2: Property Name / Asset Name -->
+        <TextView
+            android:id="@+id/lblAssetName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Property Name *"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <EditText
+            android:id="@+id/etAssetName"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:hint="E.g. Sea-face 2BHK flat"
+            android:inputType="text"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Field 3: Property Type / Subtype -->
+        <TextView
+            android:id="@+id/lblPropertyType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Property Type *"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <Spinner
+            android:id="@+id/spPropertyType"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:background="@android:drawable/edit_text"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Field 4: Purchase Value & Purchase Date (Row) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase Value *"
+                    android:textColor="#374151"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPurchaseValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:hint="Amount in INR"
+                    android:inputType="number"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="10dp"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase Date"
+                    android:textColor="#374151"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etPurchaseDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:hint="dd/mm/yyyy"
+                    android:inputType="date"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="10dp"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Field 5: Current Market Value -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Market Value *"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <EditText
+            android:id="@+id/etCurrentMarketValue"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:hint="Current valuation"
+            android:inputType="number"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Field 6: Note (optional) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note (optional)"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <EditText
+            android:id="@+id/etNote"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:hint="Add any additional notes about this asset..."
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Action Buttons Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelAssetForm"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textColor="#374151"
+                app:strokeColor="#E5E7EB"
+                app:strokeWidth="1dp"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveAssetForm"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:text="Save Asset Record"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:backgroundTint="#2563EB"
+                app:cornerRadius="10dp"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

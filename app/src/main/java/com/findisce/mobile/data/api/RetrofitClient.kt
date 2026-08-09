@@ -1,5 +1,7 @@
 package com.findisce.mobile.data.api
 
+import android.content.Context
+import com.findisce.mobile.data.local.SessionManager
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -8,13 +10,36 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    private const val BASE_URL = "http://10.0.2.2:8080/v1/" // Maps to finone-server on host when running in android emulator
+    private const val BASE_URL = "https://herself-bacterial-browsers-ancient.trycloudflare.com/api/" // Maps to finone-server on host when running in android emulator
+
+    var sessionManager: SessionManager? = null
+
+    var token: String?
+        get() = sessionManager?.fetchToken()
+        set(value) {
+            sessionManager?.saveSession(value)
+        }
+
+    fun init(context: Context) {
+        if (sessionManager == null) {
+            sessionManager = SessionManager(context.applicationContext)
+        }
+    }
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
     private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor { chain ->
+            val original = chain.request()
+            val requestBuilder = original.newBuilder()
+            val authToken = token
+            if (!authToken.isNullOrBlank()) {
+                requestBuilder.header("Authorization", "Bearer $authToken")
+            }
+            chain.proceed(requestBuilder.build())
+        }
         .addInterceptor(loggingInterceptor)
         .connectTimeout(15, TimeUnit.SECONDS)
         .readTimeout(15, TimeUnit.SECONDS)
