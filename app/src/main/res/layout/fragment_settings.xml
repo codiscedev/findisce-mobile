@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8F9FA">
+    android:background="#F9FAFB"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,26 +15,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="System Settings"
-            android:textColor="#0047AB"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Customize your profile details and theme accent styles."
-            android:textColor="#666666"
+            android:text="Manage your account, financial preferences, regional profiles, and settings."
+            android:textColor="#6B7280"
             android:textSize="12sp"
             android:layout_marginTop="4dp" />
 
-        <!-- Profile Settings Card -->
+        <!-- 1. PROFILE & PREFERENCES CARD -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="1dp">
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#FFFFFF">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,67 +38,270 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PROFILE INFORMATION"
-                    android:textColor="#888888"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+                    android:text="Profile &amp; Preferences"
+                    android:textColor="#111827"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Display Name"
-                    android:textColor="#555555"
-                    android:textSize="12sp" />
+                    android:text="Manage regional financial preferences and personal records"
+                    android:textColor="#6B7280"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+
+                <!-- Full Name & Email Address -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name"
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="14dp" />
 
                 <EditText
-                    android:id="@+id/etProfileName"
+                    android:id="@+id/etFullName"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="Codisce"
-                    android:inputType="textPersonName"
-                    android:background="@android:drawable/edit_text"
-                    android:padding="10dp"
-                    android:textSize="13sp"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="12dp" />
+                    android:hint="Full Name"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="#111827"
+                    android:textSize="13sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Email Address"
-                    android:textColor="#555555"
-                    android:textSize="12sp" />
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
 
-                <TextView
+                <EditText
+                    android:id="@+id/etEmailAddress"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="codisce@findisce.com"
-                    android:padding="10dp"
-                    android:textSize="13sp"
-                    android:textColor="#888888"
-                    android:background="#10000000"
-                    android:layout_marginTop="4dp" />
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@android:drawable/edit_text"
+                    android:hint="Email Address"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="#111827"
+                    android:textSize="13sp" />
 
-                <Button
+                <!-- Mobile Number & Country Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile Number"
+                            android:textColor="#374151"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etMobileNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:drawable/edit_text"
+                            android:hint="+91 98765 43210"
+                            android:inputType="phone"
+                            android:paddingHorizontal="12dp"
+                            android:textColor="#111827"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Country 🌐"
+                            android:textColor="#374151"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:id="@+id/spCountry"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:drawable/btn_dropdown" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Currency & Inflation Rate Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Preferred Currency"
+                            android:textColor="#374151"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <Spinner
+                            android:id="@+id/spPreferredCurrency"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:drawable/btn_dropdown" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Inflation Rate (%)"
+                            android:textColor="#374151"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etInflationRate"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@android:drawable/edit_text"
+                            android:hint="6"
+                            android:inputType="numberDecimal"
+                            android:paddingHorizontal="12dp"
+                            android:textColor="#111827"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Timezone & Financial Cycle Year Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Timezone"
+                            android:textColor="#374151"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etTimezone"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bottom_nav_bar_bg"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:paddingHorizontal="12dp"
+                            android:text="GMT +5:30"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Financial Cycle Year"
+                            android:textColor="#374151"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/etFinancialYear"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bottom_nav_bar_bg"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:paddingHorizontal="12dp"
+                            android:text="April - March"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Save Profile Button -->
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSaveProfile"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:text="Save Preferences"
-                    android:backgroundTint="#0047AB"
-                    android:textColor="#FFFFFFFF"
-                    android:textSize="13sp"
-                    android:layout_marginTop="16dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="16dp"
+                    android:text="Save Changes"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#2563EB"
+                    app:cornerRadius="10dp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Personalization Card -->
+        <!-- 2. REMINDERS CARD -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="1dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#FFFFFF">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -115,58 +312,371 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PERSONALIZE THEME ACCENT"
-                    android:textColor="#888888"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="12dp" />
+                    android:text="Reminders &amp; Notification Scheduler"
+                    android:textColor="#111827"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                <RadioGroup
-                    android:id="@+id/rgThemeAccent"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="3">
+                    android:text="Configure built-in system reminders or create custom scheduled alerts"
+                    android:textColor="#6B7280"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
 
-                    <RadioButton
-                        android:id="@+id/rbThemeBlue"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Blue"
-                        android:textSize="13sp" />
-
-                    <RadioButton
-                        android:id="@+id/rbThemeRose"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Rose"
-                        android:textSize="13sp" />
-
-                    <RadioButton
-                        android:id="@+id/rbThemeEmerald"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Green"
-                        android:textSize="13sp" />
-                </RadioGroup>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddCustomReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="12dp"
+                    android:text="+ Add Custom Reminder"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:backgroundTint="#2563EB"
+                    app:cornerRadius="20dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Logout Action Card -->
-        <Button
-            android:id="@+id/btnSignOut"
+        <!-- 3. CATEGORY MANAGER CARD -->
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Log Out Session"
-            android:backgroundTint="#FF000000"
-            android:textColor="#FFFFFFFF"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="40dp" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category Manager"
+                    android:textColor="#111827"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View, create, and customize your custom Asset and Debt Category definitions"
+                    android:textColor="#6B7280"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+
+                <!-- Sub-Tabs Pills Bar -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:layout_marginTop="12dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tabAssetCategories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Asset Categories"
+                            android:textColor="#2563EB"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp"
+                            android:background="@drawable/pill_tab_active" />
+
+                        <TextView
+                            android:id="@+id/tabDebtCategories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Debt Categories"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp" />
+
+                        <TextView
+                            android:id="@+id/tabInvestmentCategories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Investment Categories"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp" />
+
+                        <TextView
+                            android:id="@+id/tabGoalCategories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Goal Categories"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp" />
+
+                        <TextView
+                            android:id="@+id/tabEssentialCategories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Essential Categories"
+                            android:textColor="#6B7280"
+                            android:textSize="12sp"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="6dp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Category List & Add Form Section -->
+                <LinearLayout
+                    android:id="@+id/llCategoryManagerList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="12dp" />
+
+                <!-- Add New Category Sub-Form -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CREATE NEW CATEGORY"
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <EditText
+                    android:id="@+id/etNewCategoryName"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@android:drawable/edit_text"
+                    android:hint="Category Name *"
+                    android:inputType="textCapWords"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="#111827"
+                    android:textSize="13sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <Spinner
+                        android:id="@+id/spNewCategoryType"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@android:drawable/btn_dropdown" />
+
+                    <EditText
+                        android:id="@+id/etNewCategoryRate"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@android:drawable/edit_text"
+                        android:hint="Default Rate (%) *"
+                        android:inputType="numberDecimal"
+                        android:paddingHorizontal="12dp"
+                        android:textColor="#111827"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCreateCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="12dp"
+                    android:text="Create Category"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#2563EB"
+                    app:cornerRadius="10dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 4. PERSONALIZE APPEARANCE CARD -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:cardBackgroundColor="#FFFFFF">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personalize Appearance"
+                    android:textColor="#111827"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pick theme mode and color accents"
+                    android:textColor="#6B7280"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appearance Theme Mode"
+                    android:textColor="#374151"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp" />
+
+                <!-- Theme Mode Option Pills -->
+                <RadioGroup
+                    android:id="@+id/rgThemeMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+
+                    <RadioButton
+                        android:id="@+id/rbThemeLight"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="Light"
+                        android:textColor="#111827"
+                        android:textSize="12sp"
+                        android:background="@drawable/pill_tab_inactive" />
+
+                    <RadioButton
+                        android:id="@+id/rbThemeDark"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="6dp"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="Dark"
+                        android:textColor="#111827"
+                        android:textSize="12sp"
+                        android:background="@drawable/pill_tab_inactive" />
+
+                    <RadioButton
+                        android:id="@+id/rbThemeSystem"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="System"
+                        android:textColor="#2563EB"
+                        android:textSize="12sp"
+                        android:checked="true"
+                        android:background="@drawable/pill_tab_active" />
+                </RadioGroup>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnApplyTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="16dp"
+                    android:text="Apply Theme"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#2563EB"
+                    app:cornerRadius="10dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 5. SECURITY SIGN OUT CARD -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="#FEF2F2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Security Sign Out"
+                    android:textColor="#991B1B"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Securely invalidate current session auth tokens or reset active devices"
+                    android:textColor="#7F1D1D"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSignOutDevice"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:text="Sign Out from Device"
+                        android:textAllCaps="false"
+                        android:textColor="#DC2626"
+                        app:strokeColor="#FCA5A5"
+                        app:cornerRadius="10dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSignOutAll"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="Sign Out All Devices"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="#DC2626"
+                        app:cornerRadius="10dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </ScrollView>

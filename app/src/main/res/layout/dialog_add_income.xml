@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Income Stream"
+            android:textColor="#111827"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Record salary, dividends, rental, or freelance income"
+            android:textColor="#6B7280"
+            android:textSize="13sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Income Source Name Input -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Income Source *"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/etIncomeSource"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:hint="E.g. Infosys Salary or Freelance"
+            android:inputType="textCapWords"
+            android:background="@android:drawable/edit_text"
+            android:padding="10dp"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Amount & Date of Credit Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="14dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amount (₹) *"
+                    android:textColor="#374151"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etIncomeAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="E.g. 89000"
+                    android:inputType="number"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="10dp"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Credit"
+                    android:textColor="#374151"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etDateOfCredit"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:hint="YYYY-MM-DD"
+                    android:inputType="date"
+                    android:background="@android:drawable/edit_text"
+                    android:padding="10dp"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Income Type Radio Group -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Income Type *"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <RadioGroup
+            android:id="@+id/rgIncomeType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="6dp"
+            android:checkedButton="@+id/rbFixed">
+
+            <RadioButton
+                android:id="@+id/rbFixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fixed Monthly Income"
+                android:textColor="#059669"
+                android:textSize="13sp"
+                android:layout_marginEnd="16dp" />
+
+            <RadioButton
+                android:id="@+id/rbVariable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="One-time / Variable"
+                android:textColor="#374151"
+                android:textSize="13sp" />
+        </RadioGroup>
+
+        <!-- Fetch Type Dropdown -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetch Type *"
+            android:textColor="#374151"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="14dp" />
+
+        <Spinner
+            android:id="@+id/spFetchType"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@android:drawable/edit_text"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="24dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelModalIncome"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:text="Cancel"
+                android:textAllCaps="false"
+                android:textColor="#374151"
+                android:textSize="13sp"
+                app:strokeColor="#D1D5DB"
+                app:strokeWidth="1dp"
+                app:cornerRadius="10dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSaveModalIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:text="Save Income"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:backgroundTint="#2563EB"
+                app:cornerRadius="10dp"
+                android:layout_marginStart="12dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

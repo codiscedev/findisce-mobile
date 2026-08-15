@@ -50,128 +50,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Choose Asset Category"
+                android:text="Choose Category"
                 android:textColor="#111827"
                 android:textSize="13sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Category Buttons Grid Container -->
-        <GridLayout
-            android:id="@+id/gridAssetCategories"
+        <!-- Category Selection RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAssetCategories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:columnCount="2"
-            android:alignmentMode="alignMargins"
-            android:useDefaultMargins="true"
-            android:layout_marginTop="14dp">
-
-            <!-- 1. Property -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catProperty"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Property"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="13sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-            <!-- 2. Gold -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catGold"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Gold"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="13sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-            <!-- 3. Silver -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catSilver"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Silver"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="13sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-            <!-- 4. Vehicle -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catVehicle"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Vehicle"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="13sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-            <!-- 5. Liquid Cash -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catLiquidCash"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Liquid Cash"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="13sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-            <!-- 6. Savings Bank Account -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catSavingsBank"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Savings Bank Account"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="11sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-            <!-- 7. Others -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/catOthers"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_columnWeight="1"
-                android:text="Others"
-                android:textAllCaps="false"
-                android:textColor="#111827"
-                android:textSize="13sp"
-                app:strokeColor="#E5E7EB"
-                app:strokeWidth="1dp"
-                app:cornerRadius="12dp" />
-
-        </GridLayout>
+            android:layout_marginTop="14dp"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
 
     </LinearLayout>
 </ScrollView>

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.findisce.mobile.data.model.*
+import com.findisce.mobile.data.model.category.AssetCategoryResponseItem
 import com.findisce.mobile.data.repository.FinancialRepository
 import kotlinx.coroutines.launch
 
@@ -44,61 +45,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 _summary.value = Result.success(data)
             } catch (e: Exception) {
                 _summary.value = Result.failure(e)
-            }
-        }
-    }
-
-    fun fetchAssetCategories() {
-        viewModelScope.launch {
-            try {
-                val list = financialRepository.getAssetCategories()
-                _assetCategories.value = Result.success(list)
-            } catch (e: Exception) {
-                _assetCategories.value = Result.failure(e)
-            }
-        }
-    }
-
-    fun fetchDebtCategories() {
-        viewModelScope.launch {
-            try {
-                val list = financialRepository.getDebtCategories()
-                _debtCategories.value = Result.success(list)
-            } catch (e: Exception) {
-                _debtCategories.value = Result.failure(e)
-            }
-        }
-    }
-
-    fun fetchInvestmentCategories() {
-        viewModelScope.launch {
-            try {
-                val list = financialRepository.getInvestmentCategories()
-                _investmentCategories.value = Result.success(list)
-            } catch (e: Exception) {
-                _investmentCategories.value = Result.failure(e)
-            }
-        }
-    }
-
-    fun fetchGoalCategories() {
-        viewModelScope.launch {
-            try {
-                val list = financialRepository.getGoalCategories()
-                _goalCategories.value = Result.success(list)
-            } catch (e: Exception) {
-                _goalCategories.value = Result.failure(e)
-            }
-        }
-    }
-
-    fun fetchEssentialCategories() {
-        viewModelScope.launch {
-            try {
-                val list = financialRepository.getEssentialCategories()
-                _essentialCategories.value = Result.success(list)
-            } catch (e: Exception) {
-                _essentialCategories.value = Result.failure(e)
             }
         }
     }

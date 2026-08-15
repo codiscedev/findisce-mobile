@@ -1,4 +1,4 @@
-package com.findisce.mobile.data.model
+package com.findisce.mobile.data.model.category
 
 import com.google.gson.annotations.SerializedName
 import java.math.BigDecimal

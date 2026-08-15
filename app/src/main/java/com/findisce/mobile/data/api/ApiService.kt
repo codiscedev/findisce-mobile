@@ -1,6 +1,11 @@
 package com.findisce.mobile.data.api
 
 import com.findisce.mobile.data.model.*
+import com.findisce.mobile.data.model.category.AssetCategoryResponseItem
+import com.findisce.mobile.data.model.category.DebtCategoryResponseItem
+import com.findisce.mobile.data.model.category.EssentialCategoryResponseItem
+import com.findisce.mobile.data.model.category.GoalCategoryResponseItem
+import com.findisce.mobile.data.model.category.InvestmentCategoryResponseItem
 import retrofit2.http.*
 
 interface ApiService {
@@ -15,20 +20,20 @@ interface ApiService {
     suspend fun getDashboardSummary(): ApiResponse<DashboardSummary>
 
     // Category Endpoints matching finone-client
-    @GET("v1/assetcategory/{userId}")
+    @GET("v1/assetcategory/users/{userId}")
     suspend fun getAssetCategories(@Path("userId") userId: String): ApiResponse<List<AssetCategoryResponseItem>>
 
-    @GET("v1/debtcategory/{userId}")
-    suspend fun getDebtCategories(@Path("userId") userId: String): ApiResponse<List<GenericCategoryItem>>
+    @GET("v1/debtcategory/users/{userId}")
+    suspend fun getDebtCategories(@Path("userId") userId: String): ApiResponse<List<DebtCategoryResponseItem>>
 
-    @GET("v1/investmentcategory/{userId}")
-    suspend fun getInvestmentCategories(@Path("userId") userId: String): ApiResponse<List<GenericCategoryItem>>
+    @GET("v1/investmentcategory/users/{userId}")
+    suspend fun getInvestmentCategories(@Path("userId") userId: String): ApiResponse<List<InvestmentCategoryResponseItem>>
 
     @GET("v1/goalcategory/users/{userId}")
-    suspend fun getGoalCategories(@Path("userId") userId: String): ApiResponse<List<GenericCategoryItem>>
+    suspend fun getGoalCategories(@Path("userId") userId: String): ApiResponse<List<GoalCategoryResponseItem>>
 
     @GET("v1/essentialcategory/users/{userId}")
-    suspend fun getEssentialCategories(@Path("userId") userId: String): ApiResponse<List<GenericCategoryItem>>
+    suspend fun getEssentialCategories(@Path("userId") userId: String): ApiResponse<List<EssentialCategoryResponseItem>>
 
     // Asset Endpoints
     @GET("v1/asset/users/{userId}")

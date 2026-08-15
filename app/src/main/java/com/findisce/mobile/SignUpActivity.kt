@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.findisce.mobile.auth.FirebaseAuthManager
@@ -97,20 +101,33 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_signup)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         FirebaseAuthManager.init(this)
 
         val sessionManager = SessionManager(this)
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
-        val etName = findViewById<EditText>(R.id.etName)
-        val etEmail = findViewById<EditText>(R.id.etEmail)
-        val etPassword = findViewById<EditText>(R.id.etPassword)
-        val etConfirmPassword = findViewById<EditText>(R.id.etConfirmPassword)
-        val btnSignUp = findViewById<Button>(R.id.btnSignUp)
-        val btnGoogleSignUp = findViewById<Button>(R.id.btnGoogleSignUp)
-        val tvLoginLink = findViewById<TextView>(R.id.tvLoginLink)
+        val titleTextView = findViewById<TextView>(R.id.header_title)
+        val backIconImageView = findViewById<ImageView>(R.id.back_icon)
+        val nameEditText = findViewById<EditText>(R.id.name)
+        val emailEditText = findViewById<EditText>(R.id.email_id)
+        val passwordEditText = findViewById<EditText>(R.id.password)
+        val confirmPasswordEditText = findViewById<EditText>(R.id.confirm_password)
+        val signUpButton = findViewById<Button>(R.id.sign_up)
+        val googleSignUpButton = findViewById<Button>(R.id.google_sign_up)
+        val loginTextView = findViewById<TextView>(R.id.login)
+
+        titleTextView.text = "Sign Up"
+        backIconImageView.setOnClickListener {
+            finish()
+        }
 
         // Observe authentication state changes
         authViewModel.authState.observe(this) { result ->
@@ -132,26 +149,26 @@ class SignUpActivity : AppCompatActivity() {
             }
         }
 
-        btnSignUp.setOnClickListener {
-            val name = etName.text.toString().trim()
-            val email = etEmail.text.toString().trim()
-            val password = etPassword.text.toString().trim()
-            val confirmPassword = etConfirmPassword.text.toString().trim()
+        signUpButton.setOnClickListener {
+            val name = nameEditText.text.toString().trim()
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
+            val confirmPassword = confirmPasswordEditText.text.toString().trim()
 
             if (name.isEmpty()) {
-                etName.error = "Name is required"
+                nameEditText.error = "Name is required"
                 return@setOnClickListener
             }
             if (email.isEmpty()) {
-                etEmail.error = "Email is required"
+                emailEditText.error = "Email is required"
                 return@setOnClickListener
             }
             if (password.length < 6) {
-                etPassword.error = "Password must be at least 6 characters"
+                passwordEditText.error = "Password must be at least 6 characters"
                 return@setOnClickListener
             }
             if (password != confirmPassword) {
-                etConfirmPassword.error = "Passwords do not match"
+                confirmPasswordEditText.error = "Passwords do not match"
                 return@setOnClickListener
             }
 
@@ -160,13 +177,13 @@ class SignUpActivity : AppCompatActivity() {
             authViewModel.signup(name, email, password)
         }
 
-        btnGoogleSignUp.setOnClickListener {
+        googleSignUpButton.setOnClickListener {
             Log.d(TAG, "btnGoogleSignUp clicked. Launching Google Sign-In intent...")
             val googleSignInClient = FirebaseAuthManager.getGoogleSignInClient(this)
             googleSignInLauncher.launch(googleSignInClient.signInIntent)
         }
 
-        tvLoginLink.setOnClickListener {
+        loginTextView.setOnClickListener {
             finish()
         }
     }

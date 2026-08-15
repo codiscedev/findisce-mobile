@@ -3,21 +3,30 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8F9FA">
+    android:background="@color/white">
 
-    <!-- Fragment Container -->
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/custom_nav" />
-
-    <!-- Include custom bottom navigation layout -->
-    <include
-        android:id="@+id/custom_nav"
-        layout="@layout/custom_bottom_navigation_layout"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        android:id="@+id/toolbar">
 
+        <include layout="@layout/custom_toolbar_layout" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:background="@color/bg"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/nav_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/nav_bar">
+        <include layout="@layout/custom_bottom_navigation_layout" />
+
+    </RelativeLayout>
 </RelativeLayout>

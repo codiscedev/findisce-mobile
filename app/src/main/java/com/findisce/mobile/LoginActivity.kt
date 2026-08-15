@@ -5,10 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.findisce.mobile.auth.FirebaseAuthManager
@@ -107,17 +111,31 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
+
+        enableEdgeToEdge()
         setContentView(R.layout.activity_login)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         FirebaseAuthManager.init(this)
 
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
-        val etEmail = findViewById<EditText>(R.id.etEmail)
-        val etPassword = findViewById<EditText>(R.id.etPassword)
-        val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val btnGoogleLogin = findViewById<Button>(R.id.btnGoogleLogin)
-        val tvSignUpLink = findViewById<TextView>(R.id.tvSignUpLink)
+        val titleTextView = findViewById<TextView>(R.id.header_title)
+        val backIconImageView = findViewById<ImageView>(R.id.back_icon)
+        val emailEditText = findViewById<EditText>(R.id.email_id)
+        val passwordEditText = findViewById<EditText>(R.id.password)
+        val loginButton = findViewById<Button>(R.id.login)
+        val googleLoginButton = findViewById<Button>(R.id.google_login)
+        val signUpTextView = findViewById<TextView>(R.id.sign_up)
+
+        titleTextView.text = "Login"
+        backIconImageView.setOnClickListener {
+            finish()
+        }
 
         // Observe authentication state changes
         authViewModel.authState.observe(this) { result ->
@@ -134,20 +152,20 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        btnLogin.setOnClickListener {
-            val email = etEmail.text.toString().trim()
-            val password = etPassword.text.toString().trim()
+        loginButton.setOnClickListener {
+            val email = emailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
 
             if (email.isEmpty()) {
-                etEmail.error = "Please enter email"
+                emailEditText.error = "Please enter email"
                 return@setOnClickListener
             }
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                etEmail.error = "Invalid email format"
+                emailEditText.error = "Invalid email format"
                 return@setOnClickListener
             }
             if (password.length < 6) {
-                etPassword.error = "Password must be at least 6 characters"
+                emailEditText.error = "Password must be at least 6 characters"
                 return@setOnClickListener
             }
 
@@ -155,13 +173,13 @@ class LoginActivity : AppCompatActivity() {
             authViewModel.login(email, password)
         }
 
-        btnGoogleLogin.setOnClickListener {
+        googleLoginButton.setOnClickListener {
             Log.d(TAG, "btnGoogleLogin clicked. Launching Google Sign-In intent...")
             val googleSignInClient = FirebaseAuthManager.getGoogleSignInClient(this)
             googleSignInLauncher.launch(googleSignInClient.signInIntent)
         }
 
-        tvSignUpLink.setOnClickListener {
+        signUpTextView.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }
     }

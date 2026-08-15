@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var titleTextView: TextView
     lateinit var dashboardTab: RelativeLayout
     lateinit var wealthTab: RelativeLayout
     lateinit var healthTab: RelativeLayout
@@ -37,6 +38,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        titleTextView = findViewById(R.id.header_title)
+
         dashboardTab = findViewById(R.id.dashboard)
         wealthTab = findViewById(R.id.wealth)
         healthTab = findViewById(R.id.health)
@@ -52,9 +55,12 @@ class MainActivity : AppCompatActivity() {
         healthTabIcon = findViewById(R.id.health_icon)
         settingsTabIcon = findViewById(R.id.settings_icon)
 
+        titleTextView.setText("Dashboard")
+
         openFragment(DashboardFragment())
 
         dashboardTab.setOnClickListener {
+            titleTextView.setText("Dashboard")
             dashboardTab.setBackgroundResource(R.drawable.dashboard_tab_bg)
             dashboardTabIcon.setColorFilter(
                 ContextCompat.getColor(
@@ -95,6 +101,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         wealthTab.setOnClickListener {
+            titleTextView.setText("Wealth")
             dashboardTab.setBackgroundResource(R.drawable.inactive_tab_bg)
             dashboardTabIcon.setColorFilter(
                 ContextCompat.getColor(
@@ -134,6 +141,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         healthTab.setOnClickListener {
+            titleTextView.setText("Money Flow")
             dashboardTab.setBackgroundResource(R.drawable.inactive_tab_bg)
             dashboardTabIcon.setColorFilter(
                 ContextCompat.getColor(
@@ -173,6 +181,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         settingsTab.setOnClickListener {
+            titleTextView.setText("Settings")
             dashboardTab.setBackgroundResource(R.drawable.inactive_tab_bg)
             dashboardTabIcon.setColorFilter(
                 ContextCompat.getColor(

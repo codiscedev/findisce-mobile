@@ -7,6 +7,11 @@ import com.findisce.mobile.data.local.db.AssetCategoryEntity
 import com.findisce.mobile.data.local.db.WealthDao
 import com.findisce.mobile.data.local.db.WealthItemEntity
 import com.findisce.mobile.data.model.*
+import com.findisce.mobile.data.model.category.AssetCategoryResponseItem
+import com.findisce.mobile.data.model.category.DebtCategoryResponseItem
+import com.findisce.mobile.data.model.category.EssentialCategoryResponseItem
+import com.findisce.mobile.data.model.category.GoalCategoryResponseItem
+import com.findisce.mobile.data.model.category.InvestmentCategoryResponseItem
 import java.math.BigDecimal
 import java.util.UUID
 
@@ -67,7 +72,7 @@ class FinancialRepository(context: Context? = null) {
         return emptyList()
     }
 
-    suspend fun getDebtCategories(): List<GenericCategoryItem> {
+    suspend fun getDebtCategories(): List<DebtCategoryResponseItem> {
         val userId = RetrofitClient.sessionManager?.fetchUserId()
         if (!userId.isNullOrBlank()) {
             try {
@@ -82,7 +87,7 @@ class FinancialRepository(context: Context? = null) {
         return emptyList()
     }
 
-    suspend fun getInvestmentCategories(): List<GenericCategoryItem> {
+    suspend fun getInvestmentCategories(): List<InvestmentCategoryResponseItem> {
         val userId = RetrofitClient.sessionManager?.fetchUserId()
         if (!userId.isNullOrBlank()) {
             try {
@@ -97,7 +102,7 @@ class FinancialRepository(context: Context? = null) {
         return emptyList()
     }
 
-    suspend fun getGoalCategories(): List<GenericCategoryItem> {
+    suspend fun getGoalCategories(): List<GoalCategoryResponseItem> {
         val userId = RetrofitClient.sessionManager?.fetchUserId()
         if (!userId.isNullOrBlank()) {
             try {
@@ -112,7 +117,7 @@ class FinancialRepository(context: Context? = null) {
         return emptyList()
     }
 
-    suspend fun getEssentialCategories(): List<GenericCategoryItem> {
+    suspend fun getEssentialCategories(): List<EssentialCategoryResponseItem> {
         val userId = RetrofitClient.sessionManager?.fetchUserId()
         if (!userId.isNullOrBlank()) {
             try {

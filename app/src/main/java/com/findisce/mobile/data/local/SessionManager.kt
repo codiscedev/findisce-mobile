@@ -2,6 +2,7 @@ package com.findisce.mobile.data.local
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.firebase.auth.FirebaseAuth
 
 class SessionManager(context: Context) {
 
@@ -30,19 +31,26 @@ class SessionManager(context: Context) {
     }
 
     fun fetchEmail(): String? {
-        return prefs.getString(KEY_EMAIL, null)
+        val email = prefs.getString(KEY_EMAIL, null)
+        if (!email.isNullOrBlank()) return email
+        return FirebaseAuth.getInstance().currentUser?.email
     }
 
     fun fetchName(): String? {
-        return prefs.getString(KEY_NAME, null)
+        val name = prefs.getString(KEY_NAME, null)
+        if (!name.isNullOrBlank()) return name
+        return FirebaseAuth.getInstance().currentUser?.displayName
     }
 
     fun fetchUserId(): String? {
-        return prefs.getString(KEY_USER_ID, null)
+        val userId = prefs.getString(KEY_USER_ID, null)
+        if (!userId.isNullOrBlank()) return userId
+        return FirebaseAuth.getInstance().currentUser?.uid
     }
 
     fun isLoggedIn(): Boolean {
-        return !fetchToken().isNullOrBlank()
+        if (!fetchToken().isNullOrBlank()) return true
+        return FirebaseAuth.getInstance().currentUser != null
     }
 
     fun clearSession() {

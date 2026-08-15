@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".wealth.AddAssetActivity">
+
+    <!-- Top Action Bar -->
+    <include layout="@layout/custom_toolbar_without_left_icon_layout" />
+
+    <!-- Form Content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Selected Category -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Selected Category"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etSelectedCategory"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bottom_nav_bar_bg"
+                android:paddingHorizontal="16dp"
+                android:textColor="#111827"
+                android:textSize="14sp"
+                android:focusable="false"
+                android:clickable="false"
+                android:textStyle="bold" />
+
+            <!-- Asset Type (Appreciation/Depreciation) -->
+            <TextView
+                android:id="@+id/lblAssetType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asset Type *"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <Spinner
+                android:id="@+id/spAssetType"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:paddingHorizontal="8dp" />
+
+            <!-- Appreciation Rate -->
+            <TextView
+                android:id="@+id/lblAppreciationRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estimated Annual Rate (%) *"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etAppreciationRate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/edit_text"
+                android:hint="8.0"
+                android:inputType="numberDecimal"
+                android:paddingHorizontal="12dp"
+                android:textColor="#111827"
+                android:textSize="14sp" />
+
+            <!-- Asset Name -->
+            <TextView
+                android:id="@+id/lblAssetName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asset Name *"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etAssetName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/edit_text"
+                android:hint="E.g. Sea-face 2BHK flat"
+                android:inputType="textCapWords"
+                android:paddingHorizontal="12dp"
+                android:textColor="#111827"
+                android:textSize="14sp" />
+
+            <!-- Subtype Dropdown (Property Type / Vehicle Type) -->
+            <TextView
+                android:id="@+id/lblPropertyType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Property Type *"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spPropertyType"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:paddingHorizontal="8dp"
+                android:visibility="gone" />
+
+            <!-- Purchase Value -->
+            <TextView
+                android:id="@+id/lblPurchaseValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purchase Value (₹) *"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etPurchaseValue"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/edit_text"
+                android:hint="0"
+                android:inputType="number"
+                android:paddingHorizontal="12dp"
+                android:textColor="#111827"
+                android:textSize="14sp" />
+
+            <!-- Purchase Date -->
+            <TextView
+                android:id="@+id/lblPurchaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Purchase Date"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etPurchaseDate"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/edit_text"
+                android:hint="YYYY-MM-DD"
+                android:focusable="false"
+                android:clickable="true"
+                android:paddingHorizontal="12dp"
+                android:textColor="#111827"
+                android:textSize="14sp" />
+
+            <!-- Current Market Value -->
+            <TextView
+                android:id="@+id/lblCurrentMarketValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Current Market Value (₹) *"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etCurrentMarketValue"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/edit_text"
+                android:hint="0"
+                android:inputType="number"
+                android:paddingHorizontal="12dp"
+                android:textColor="#111827"
+                android:textSize="14sp" />
+
+            <!-- Notes -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes / Remarks"
+                android:textColor="#374151"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/etNote"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:drawable/edit_text"
+                android:gravity="top|start"
+                android:hint="Optional notes..."
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textColor="#111827"
+                android:textSize="14sp" />
+
+            <!-- Buttons Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancelAssetForm"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="Cancel"
+                    android:textAllCaps="false"
+                    android:textColor="#6B7280"
+                    app:strokeColor="#D1D5DB"
+                    app:cornerRadius="12dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSaveAssetForm"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Save Record"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#4F46E5"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

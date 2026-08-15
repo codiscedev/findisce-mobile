@@ -10,50 +10,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="15dp">
 
-        <!-- Header Section with Title and + Add Button -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/btnAddWealthTop"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Wealth"
-                    android:textColor="#1F2937"
-                    android:textSize="26sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Track, grow, and optimize your financial future with dynamic projections."
-                    android:textColor="#6B7280"
-                    android:textSize="12sp"
-                    android:layout_marginTop="2dp" />
-            </LinearLayout>
+                android:text="Track, grow, and optimize your financial future with dynamic projections."
+                android:textColor="#6B7280"
+                android:textSize="12sp"
+                android:id="@+id/description"
+                android:layout_marginTop="2dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAddWealthTop"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:text="+ Add"
+                android:text="Add"
+                android:layout_below="@+id/description"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp"
-                android:textStyle="bold"
+                app:icon="@drawable/add"
+                android:textFontWeight="600"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 app:backgroundTint="#2563EB"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="10dp" />
         </RelativeLayout>
 
         <!-- CARD 1: ASSETS -->
@@ -89,31 +77,21 @@
                             android:src="@drawable/ic_wealth_asset" />
                     </FrameLayout>
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/btnAssetDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:orientation="horizontal">
+                        android:text="Details →"
+                        android:textColor="#2563EB"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:background="?attr/selectableItemBackground"
+                        android:padding="6dp" />
 
-                        <TextView
-                            android:id="@+id/btnAddAsset"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+ Add Asset"
-                            android:textColor="#6B7280"
-                            android:textSize="12sp"
-                            android:paddingHorizontal="6dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Details >"
-                            android:textColor="#2563EB"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginStart="8dp" />
-                    </LinearLayout>
                 </RelativeLayout>
 
                 <TextView
@@ -297,31 +275,6 @@
                             android:src="@drawable/ic_wealth_debt" />
                     </FrameLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/btnAddLoan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+ Add Loan"
-                            android:textColor="#6B7280"
-                            android:textSize="12sp"
-                            android:paddingHorizontal="6dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Details >"
-                            android:textColor="#2563EB"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginStart="8dp" />
-                    </LinearLayout>
                 </RelativeLayout>
 
                 <TextView
@@ -507,31 +460,6 @@
                             android:src="@drawable/ic_wealth_goal" />
                     </FrameLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/btnAddGoal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+ Add Goal"
-                            android:textColor="#6B7280"
-                            android:textSize="12sp"
-                            android:paddingHorizontal="6dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Details >"
-                            android:textColor="#2563EB"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginStart="8dp" />
-                    </LinearLayout>
                 </RelativeLayout>
 
                 <TextView
@@ -657,31 +585,6 @@
                             android:src="@drawable/ic_wealth_essential" />
                     </FrameLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/btnAddEssential"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+ Add Essential"
-                            android:textColor="#6B7280"
-                            android:textSize="12sp"
-                            android:paddingHorizontal="6dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Details >"
-                            android:textColor="#2563EB"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginStart="8dp" />
-                    </LinearLayout>
                 </RelativeLayout>
 
                 <TextView
@@ -760,31 +663,6 @@
                             android:src="@drawable/ic_wealth_investment" />
                     </FrameLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/btnAddInvestment"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="+ Add Investment"
-                            android:textColor="#6B7280"
-                            android:textSize="12sp"
-                            android:paddingHorizontal="6dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Details >"
-                            android:textColor="#2563EB"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:layout_marginStart="8dp" />
-                    </LinearLayout>
                 </RelativeLayout>
 
                 <TextView
